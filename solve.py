@@ -1,19 +1,17 @@
-def solution(a):
-    c = [0] * (max(a)+1)
+n = input()
+row = int(n[1])  # 행
+column = ord(n[0])-96  # 열
 
-    for i in a:
-        c[i] += 1
+# 나이트의 이동방식
+steps = [[1, 2], [1, -2], [2, 1],
+         [2, -1], [-1, 2], [-1, -2], [-2, 1], [-2, -1]]
 
-    m = 0
-    for i in c:
-        if i == max(c):
-            m += 1
+# 이동 가능한 경우의 수 카운트
+cnt = 0
+for i in steps:
+    nx = row+i[0]
+    ny = column+i[1]
+    if nx <= 8 and nx >= 1 and ny >= 1 and ny <= 8:
+        cnt += 1
 
-    if m > 1:
-        return -1
-    else:
-        return c.index(max(c))
-
-
-a = list(map(int, input().split()))
-print(solution(a))
+print(cnt)
