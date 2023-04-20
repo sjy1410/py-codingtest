@@ -1,9 +1,4 @@
-n, m = map(int, input().split())  # 행 열
+a, b = map(int, input().split())
 
-re = 0
-for i in range(n):
-    card = list(map(int, input().split()))
-    mic = min(card)
-    re = max(re, mic)
-
-print(re)
+print("a = %d" % a)
+print("b = %d" % b)
